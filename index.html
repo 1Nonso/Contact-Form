@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | Contact Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon-32x32.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body class="body">
+    <main>
+      <form action="/register">
+        <legend>
+          <h1>Contact Us</h1>
+        </legend>
+        <fieldset>
+          <div class="names_section">
+            <div class="firstName firstNameInput">
+              <label for="f-name">First Name: </label>
+              <br />
+              <input
+                type="text"
+                id="fName"
+                name="First-name"
+                autocomplete="name"
+                placeholder="Enter First Name"
+                required
+              />
+              <p class="fNameError fuckThisShit">This Field is required</p>
+            </div>
+            <div class="lastName">
+              <label for="l-name">Last Name: </label>
+              <br />
+              <input
+                type="text"
+                name="Last-name"
+                id="l-name"
+                autocomplete="name"
+                placeholder="Enter Last Name / Surname"
+                required
+              />
+            </div>
+          </div>
+          <div class="emailAddress">
+            <label for="email">Email Address:</label>
+            <br />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              autocomplete="email"
+              placeholder="Enter Valid Email Address here"
+              required
+            />
+          </div>
+          <section>
+            <legend>Query Type</legend>
+            <fieldset class="query_type">
+              <div class="radioInput" tabindex="0">
+                <label class="label" for="General-Enquiry">
+                  <input
+                    class="input"
+                    type="radio"
+                    name="Query-type"
+                    id="General-Enquiry"
+                    required
+                  />
+                  General-Enquiry</label
+                >
+              </div>
+              <div class="radioInput" tabindex="0">
+                <label class="label" for="Support-Request">
+                  <input
+                    class="input"
+                    type="radio"
+                    name="Query-type"
+                    id="Support-Request"
+                    required
+                  />
+                  Support-Request</label
+                >
+              </div>
+            </fieldset>
+          </section>
+          <div>
+            <label for="description">Message</label>
+            <br />
+            <textarea
+              name="description"
+              id="description"
+              rows="10"
+              placeholder="Write a detailed discription of yourself and The reason you are contacting us"
+              required
+            ></textarea>
+          </div>
+          <div class="checkBox">
+            <input
+              class="checkBoxCheck"
+              type="checkbox"
+              name="consent"
+              id="consent"
+              required
+            />
+            <label class="checkBoxLabel" for="consent"
+              >I Consent to be contacted by the Team</label
+            >
+          </div>
+          <button type="submit">Submit</button>
+        </fieldset>
+      </form>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
