@@ -1,40 +1,77 @@
-const emailInput = document.querySelector(".emailAddress");
+const email = document.querySelector(".emailAddress");
+const emailInput = document.getElementById("email");
 const firstName = document.querySelector(".firstName");
+const firstNameInput = document.getElementById("fName");
 const lastName = document.querySelector(".lastName");
-const directive = document.querySelector(".fNameError");
-const nameInput = document.querySelector("#fName");
+const lastNameInput = document.getElementById("lName");
+const errorMessage = document.querySelector(".fNameError");
 
-console.log(nameInput.value);
+console.log(firstNameInput);
+console.log(lastNameInput);
+console.log(errorMessage);
+console.log(emailInput);
 
-firstName.addEventListener("click", () => {
-  if (nameInput.value === "") {
-    directive.classList.toggle("fNameError");
-  }
-  //   if (nameInput.value !== "") {
-  //     directive.remove('fNameError')
-  //   }
-  //   setTimeout(() => {
-  //     directive.remove('fNameError')
-  //   }, 5000);
-  console.log("hello world");
-});
+// function showErrorMessage(inputMessage, message) {
+//   const existingError = inputMessage.nextElementSibling;
+//   if (existingError && existingError.classList.contains("error-message")) {
+//     existingError.remove();
+//   }
 
-if (nameInput.value !== "") {
-  directive.remove("fNameError");
-}
+//   const errorMessage = document.createElement("p");
+//   errorMessage.textContent = message;
+//   errorMessage.classList.add("error-message");
 
-// if (nameInput.value === '') {
-//     console.log('input is empty')
-//     directive.remove('fNameError')
-// } else{
-//     console.log('input is not empty')
+//   inputElement.insertAdjacentElement("afterend", errorMessage);
 // }
 
-firstName.addEventListener("click", () => {
-  // if (nameInput.value == '') {
-  //     directive.classList.toggle('fNameError')
-  // } else {
-  //     directive.remove()
-  // }
-  // directive.classList.toggle('fNameError')
+// function removeErrorMessage(inputElement) {
+//   const existingError = inputElement.nextElementSibling;
+//   if (existingError && existingError.classList.contains("error-message")) {
+//     existingError.remove();
+//   }
+// }
+
+const errorMessageFirstName = document.createElement("p");
+errorMessageFirstName.textContent = "This field is required";
+console.log(errorMessageFirstName);
+errorMessageFirstName.style.cssText = `
+  color: red; 
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+`;
+
+const errorMessageLastName = document.createElement("p");
+errorMessageLastName.textContent = "This field is required";
+console.log(errorMessageLastName);
+errorMessageLastName.style.cssText = `
+  color: red; 
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+`;
+
+firstNameInput.addEventListener("blur", (event) => {
+  const firstNameInput = event.target.value.trim();
+  if (firstNameInput == "") {
+    firstName.appendChild(errorMessageFirstName);
+  } else {
+    errorMessageFirstName.remove();
+  }
+});
+
+lastNameInput.addEventListener("blur", (event) => {
+  const lastNameInput = event.target.value.trim();
+  if (lastNameInput == "") {
+    lastName.appendChild(errorMessageLastName);
+  } else {
+    errorMessageLastName.remove();
+  }
+});
+
+emailInput.addEventListener("blur", (event) => {
+  const emailInput = event.target.value.trim();
+  if (emailInput != "@.") {
+    console.log("this is wrong");
+  }
 });

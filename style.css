@@ -68,15 +68,6 @@ div {
   }
 }
 
-.fuckThisShit {
-  margin-top: 0.4rem;
-  color: var(--red);
-}
-
-.fNameError {
-  display: none;
-}
-
 input:hover {
   cursor: pointer;
   background-color: var(--grey-light);
