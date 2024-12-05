@@ -4,17 +4,15 @@ const firstName = document.querySelector(".firstName");
 const firstNameInput = document.getElementById("fName");
 const lastName = document.querySelector(".lastName");
 const lastNameInput = document.getElementById("lName");
-const radioContainer = document.querySelector(".queryType");
-const radioButtons = document.getElementsByName("input[name='queryType']");
+const radioContainer = document.querySelector(".queryContainer");
+const radioButtons = document.querySelectorAll('input[name="QueryType"]');
 const message = document.querySelector(".messageContainer");
 const messageTextArea = document.getElementById("description");
 const consent = document.getElementById("consent");
 const consentContainer = document.querySelector(".consentContainer");
 const submitButton = document.querySelector(".submit");
-
-console.log(submitButton);
-console.log(consent);
-console.log(consentContainer);
+const popUpOne = document.querySelector(".popUp");
+const form = document.querySelector('.contactForm')
 
 const errorMessageFirstName = document.createElement("p");
 errorMessageFirstName.textContent = "This field is required";
@@ -26,9 +24,9 @@ errorMessageFirstName.style.cssText = `
   `;
 
 firstNameInput.addEventListener("blur", (event) => {
-  const firstNameInput = event.target.value.trim();
-  if (firstNameInput == "") {
-    firstName.appendChild(errorMessageFirstName);
+  const firstNameValue = event.target.value.trim();
+  if (firstNameValue == "") {
+    firstName.append(errorMessageFirstName);
     event.target.style.borderColor = `red`;
   } else {
     errorMessageFirstName.remove();
@@ -55,6 +53,7 @@ lastNameInput.addEventListener("blur", (event) => {
     event.target.style.borderColor = ``;
   }
 });
+
 const errorMessageEmail = document.createElement("p");
 errorMessageEmail.textContent = "Please Enter a valid Email Address";
 errorMessageEmail.style.cssText = `
@@ -88,16 +87,6 @@ font-weight: bold;
 margin-top: 10px;
 `;
 
-messageTextArea.addEventListener("blur", (event) => {
-  const messageTextAreaVariable = event.target.value.trim();
-  if (messageTextAreaVariable == "") {
-    message.append(errorTextArea);
-    messageTextArea.style = `
-    border-color: red;
-    `;
-  }
-});
-
 const errorMessageQuery = document.createElement("p");
 errorMessageQuery.textContent = "Please select a Query Type";
 errorMessageQuery.style.cssText = `
@@ -106,6 +95,19 @@ font-size: 14px;
 font-weight: bold;
 margin-top: 10px;
 `;
+
+messageTextArea.addEventListener("blur", (event) => {
+  const messageTextAreaVariable = event.target.value.trim();
+  if (messageTextAreaVariable == "") {
+    message.append(errorTextArea);
+    messageTextArea.style = `
+    border-color: red;
+    `;
+  } else {
+    errorTextArea.remove();
+    messageTextArea.style.borderColor = ``;
+  }
+});
 
 const errorMessageConsent = document.createElement("p");
 errorMessageConsent.textContent =
@@ -118,19 +120,16 @@ margin-top: 10px;
 margin-left: 2rem;
 `;
 
-// function validateRadioButtons() {}
-
-// radioButtons.forEach((radio) => {
-//   radio.addEventListener("change", validateRadioButtons);
-// });
+const popup = document.createElement("div");
 
 submitButton.addEventListener("click", (event) => {
   event.preventDefault();
 
-  const firstNameInput = event.target.value.trim();
-  const lastNameInput = event.target.value.trim();
+  const firstNameValue = firstNameInput.value.trim();
+  const lastNameValue = lastNameInput.value.trim();
+  const emailValue = emailInput.value.trim();
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const messageTextAreaVariable = event.target.value.trim();
+  const messageTextAreaValue = messageTextArea.value.trim();
 
   const isAnyRadioSelected = Array.from(radioButtons).some(
     (radio) => radio.checked
@@ -150,16 +149,61 @@ submitButton.addEventListener("click", (event) => {
     errorMessageConsent.remove();
   }
 
+  if (firstNameValue == "") {
+    firstName.appendChild(errorMessageFirstName);
+    firstNameInput.style.borderColor = `red`;
+  } else {
+    errorMessageFirstName.remove();
+    firstNameInput.style.borderColor = ``;
+  }
+
+  if (lastNameValue == "") {
+    lastName.appendChild(errorMessageLastName);
+    lastNameInput.style.borderColor = `red`;
+  } else {
+    errorMessageLastName.remove();
+    lastNameInput.style.borderColor = ``;
+  }
+
+  if (
+    // !emailInput.includes("@") || !emailInput.includes(".")
+    !emailRegex.test(emailValue)
+  ) {
+    email.appendChild(errorMessageEmail);
+    emailInput.style.borderColor = `red`;
+  } else {
+    errorMessageEmail.remove();
+    emailInput.style.borderColor = ``;
+  }
+
+  if (messageTextAreaValue == "") {
+    message.append(errorTextArea);
+    messageTextArea.style = `
+    border-color: red;
+    `;
+  } else {
+    errorTextArea.remove();
+    messageTextArea.style = `
+      border=color: ''
+    `;
+  }
+
   const allFieldsValid =
-    firstNameInput !== "" &&
-    lastNameInput !== "" &&
+    firstNameValue !== "" &&
+    lastNameValue !== "" &&
     emailValue !== "" &&
     emailRegex.test(emailValue) &&
-    messageTextAreaVariable !== "" &&
-    isRadioChecked &&
-    consentCheckbox.checked;
+    messageTextAreaValue !== "" &&
+    isAnyRadioSelected &&
+    consent.checked;
 
   if (allFieldsValid) {
     form.submit();
+    popUpOne.classList.remove("popUp"); // Show popup
+  //   setTimeout(() => {
+  //   }, 2000);
+  //   setTimeout(() => {
+  //     popUpOne.remove();
+  //   }, 10000);
   }
 });
