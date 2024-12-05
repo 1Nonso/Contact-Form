@@ -29,6 +29,7 @@ body {
   height: 100dvh;
   background-color: var(--green-light);
   margin: 1rem 0;
+  padding: 10rem 0;
 }
 
 main {
