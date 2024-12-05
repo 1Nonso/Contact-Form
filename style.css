@@ -66,6 +66,7 @@ div {
     width: 98.5%;
     border-radius: 0.3rem;
     border: 1px solid;
+    /* border-color: red; */
   }
 }
 
@@ -122,9 +123,10 @@ textarea:focus {
 }
 
 .checkBox {
+  display: block;
   display: flex;
   align-items: center;
-  .checkBoxCheck {
+  .consentCheckBox {
     width: 15%;
     height: 1rem;
   }
@@ -158,7 +160,7 @@ button:hover {
     }
   }
 
-  .query_type {
+  .queryType {
     display: flex;
     justify-content: space-between;
     div {

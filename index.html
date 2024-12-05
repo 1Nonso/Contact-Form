@@ -58,13 +58,13 @@
           </div>
           <section>
             <legend>Query Type</legend>
-            <fieldset class="query_type">
+            <fieldset class="queryType">
               <div class="radioInput" tabindex="0">
                 <label class="label" for="General-Enquiry">
                   <input
                     class="input"
                     type="radio"
-                    name="Query-type"
+                    name="QueryType"
                     id="General-Enquiry"
                     required
                   />
@@ -76,7 +76,7 @@
                   <input
                     class="input"
                     type="radio"
-                    name="Query-type"
+                    name="QueryType"
                     id="Support-Request"
                     required
                   />
@@ -85,7 +85,7 @@
               </div>
             </fieldset>
           </section>
-          <div>
+          <div class="messageContainer">
             <label for="description">Message</label>
             <br />
             <textarea
@@ -96,19 +96,21 @@
               required
             ></textarea>
           </div>
-          <div class="checkBox">
-            <input
-              class="checkBoxCheck"
-              type="checkbox"
-              name="consent"
-              id="consent"
-              required
-            />
-            <label class="checkBoxLabel" for="consent"
-              >I Consent to be contacted by the Team</label
-            >
-          </div>
-          <button type="submit">Submit</button>
+          <section class="consentContainer">
+            <div class="checkBox">
+              <input
+                class="consentCheckBox"
+                type="checkbox"
+                name="consent"
+                id="consent"
+                required
+              />
+              <label class="checkBoxLabel" for="consent"
+                >I Consent to be contacted by the Team</label
+              >
+            </div>
+          </section>
+          <button type="submit" class="submit">Submit</button>
         </fieldset>
       </form>
     </main>
