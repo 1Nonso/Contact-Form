@@ -9,13 +9,11 @@
 }
 
 :root {
-  /* Primary */
   --green-light: hsl(148, 38%, 91%);
   --green-medium: hsl(169, 82%, 27%);
   --green-dark: hsla(169, 91%, 13%, 0.938);
   --red: hsl(0, 66%, 54%);
 
-  /* Neutral */
   --White: hsl(0, 0%, 100%);
   --grey-light: hsl(186, 15%, 59%, 0.3);
   --Grey-medium: hsl(186, 15%, 59%);
@@ -29,19 +27,21 @@ body {
   height: 100dvh;
   background-color: var(--green-light);
   margin: 1rem 0;
-  /* padding: 10rem 0; */
+  padding: 5rem 0;
   position: relative;
+  font-family: karla;
 }
 
 .popUpSection {
   background-color: var(--Grey-darker);
-  position: absolute;
+  position: fixed;
   top: 0;
   padding: 1.5rem;
+  margin-top: 2rem;
   border-radius: 1rem;
   color: var(--White);
   z-index: 10;
-  transition: all 3000ms linear;
+  transition: all 0.7s ease-in-out;
   div {
     width: 50%;
     display: flex;
@@ -87,7 +87,7 @@ div {
     width: 98.5%;
     border-radius: 0.3rem;
     border: 1px solid;
-    /* border-color: red; */
+    font-family: karla;
   }
 }
 
@@ -97,8 +97,8 @@ input:hover {
 }
 
 input:focus {
-  border: none !important;
   background-color: var(--green-light);
+  border-color: aqua;
 }
 
 .radioInput {
@@ -115,7 +115,7 @@ input:focus {
     align-items: center;
     justify-content: space-around;
     cursor: pointer;
-    width: 50%;
+    width: 90%;
     z-index: -1;
     input {
       width: 10%;
@@ -135,20 +135,19 @@ input:focus {
 
 textarea {
   width: 98%;
-  margin: 0.8rem 0 0 0;
-  padding: 0.2rem;
-}
-
-textarea:focus {
-  border: 0.2rem solid red;
+  margin: 1.5rem 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-family: karla;
 }
 
 .checkBox {
   display: block;
   display: flex;
   align-items: center;
+  margin-top: 2rem;
   .consentCheckBox {
-    width: 15%;
+    /* width: 15%; */
+    margin-right: 1rem;
     height: 1rem;
   }
 }
@@ -160,11 +159,17 @@ button {
   border: none;
   background-color: var(--green-medium);
   color: var(--White);
+  margin-top: 1rem;
 }
 
 button:hover {
   cursor: pointer;
   background-color: var(--green-dark);
+}
+
+button:active{
+  background-color: var(--green-light);
+  transition: all 300ms linear;
 }
 
 @media screen and (min-width: 1024px) {
@@ -181,6 +186,12 @@ button:hover {
     }
   }
 
+  .radioInput{
+    label{
+      width: 50%;
+    }
+  }
+
   .queryType {
     display: flex;
     justify-content: space-between;
@@ -191,5 +202,6 @@ button:hover {
 
   textarea {
     height: 5rem;
+    padding: 1rem;
   }
 }

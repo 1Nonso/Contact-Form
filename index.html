@@ -30,44 +30,41 @@
         <fieldset>
           <div class="names_section">
             <div class="firstName firstNameInput">
-              <label for="f-name">First Name: </label>
+              <label for="fName">First Name * </label>
               <br />
               <input
                 type="text"
                 id="fName"
                 name="First-name"
                 autocomplete="name"
-                placeholder="Enter First Name"
                 required
               />
             </div>
             <div class="lastName">
-              <label for="l-name">Last Name: </label>
+              <label for="lName">Last Name * </label>
               <br />
               <input
                 type="text"
                 name="Last-name"
                 id="lName"
                 autocomplete="name"
-                placeholder="Enter Last Name / Surname"
                 required
               />
             </div>
           </div>
           <div class="emailAddress">
-            <label for="email">Email Address:</label>
+            <label for="email">Email Address *</label>
             <br />
             <input
               type="email"
               name="email"
               id="email"
               autocomplete="email"
-              placeholder="Enter Valid Email Address here"
               required
             />
           </div>
           <section class="queryContainer">
-            <legend>Query Type</legend>
+            <legend>Query Type *</legend>
             <fieldset class="queryType">
               <div class="radioInput" tabindex="0">
                 <label class="label" for="General-Enquiry">
@@ -96,13 +93,12 @@
             </fieldset>
           </section>
           <div class="messageContainer">
-            <label for="description">Message</label>
+            <label for="description">Message *</label>
             <br />
             <textarea
               name="description"
               id="description"
               rows="10"
-              placeholder="Write a detailed discription of yourself and The reason you are contacting us"
               required
             ></textarea>
           </div>

@@ -12,7 +12,7 @@ const consent = document.getElementById("consent");
 const consentContainer = document.querySelector(".consentContainer");
 const submitButton = document.querySelector(".submit");
 const popUpOne = document.querySelector(".popUp");
-const form = document.querySelector('.contactForm')
+const form = document.querySelector(".contactForm");
 
 const errorMessageFirstName = document.createElement("p");
 errorMessageFirstName.textContent = "This field is required";
@@ -68,7 +68,8 @@ emailInput.addEventListener("blur", (event) => {
   const emailInput = event.target.value.trim();
   if (
     // !emailInput.includes("@") || !emailInput.includes(".")
-    !emailRegex.test(emailInput)
+    !emailRegex.test(emailInput) ||
+    emailInput == ""
   ) {
     email.appendChild(errorMessageEmail);
     event.target.style.borderColor = `red`;
@@ -116,9 +117,16 @@ errorMessageConsent.style.cssText = `
 color: red; 
 font-size: 14px;
 font-weight: bold;
-margin-top: 10px;
-margin-left: 2rem;
+margin-bottom: 1.5rem;
 `;
+
+consent.addEventListener("blur", () => {
+  if (!consent.checked) {
+    consentContainer.appendChild(errorMessageConsent);
+  } else {
+    errorMessageConsent.remove();
+  }
+});
 
 const popup = document.createElement("div");
 
@@ -200,10 +208,5 @@ submitButton.addEventListener("click", (event) => {
   if (allFieldsValid) {
     form.submit();
     popUpOne.classList.remove("popUp"); // Show popup
-  //   setTimeout(() => {
-  //   }, 2000);
-  //   setTimeout(() => {
-  //     popUpOne.remove();
-  //   }, 10000);
   }
 });
