@@ -173,10 +173,7 @@ submitButton.addEventListener("click", (event) => {
     lastNameInput.style.borderColor = ``;
   }
 
-  if (
-    // !emailInput.includes("@") || !emailInput.includes(".")
-    !emailRegex.test(emailValue)
-  ) {
+  if (!emailRegex.test(emailValue)) {
     email.appendChild(errorMessageEmail);
     emailInput.style.borderColor = `red`;
   } else {
@@ -207,6 +204,6 @@ submitButton.addEventListener("click", (event) => {
 
   if (allFieldsValid) {
     form.submit();
-    popUpOne.classList.remove("popUp"); // Show popup
+    popUpOne.classList.remove("popUp");
   }
 });

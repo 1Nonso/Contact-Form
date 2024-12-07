@@ -13,7 +13,6 @@
   --green-medium: hsl(169, 82%, 27%);
   --green-dark: hsla(169, 91%, 13%, 0.938);
   --red: hsl(0, 66%, 54%);
-
   --White: hsl(0, 0%, 100%);
   --grey-light: hsl(186, 15%, 59%, 0.3);
   --Grey-medium: hsl(186, 15%, 59%);
@@ -98,7 +97,6 @@ input:hover {
 
 input:focus {
   background-color: var(--green-light);
-  border-color: aqua;
 }
 
 .radioInput {
@@ -167,7 +165,7 @@ button:hover {
   background-color: var(--green-dark);
 }
 
-button:active{
+button:active {
   background-color: var(--green-light);
   transition: all 300ms linear;
 }
@@ -186,8 +184,8 @@ button:active{
     }
   }
 
-  .radioInput{
-    label{
+  .radioInput {
+    label {
       width: 50%;
     }
   }
